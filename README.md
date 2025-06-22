@@ -12,7 +12,7 @@ Utiliza tecnologías modernas como:
 - **Bootstrap 5** para un diseño elegante y responsive
 -  Estilos personalizados con una paleta pastel (rosado, morado claro y plomo)
 
-## 🛠️ Tecnologías utilizadas
+## 🛠 Tecnologías utilizadas
 
 - HTML5
 - JavaScript (ES6+)
@@ -22,7 +22,7 @@ Utiliza tecnologías modernas como:
 ##  Estructura del proyecto
 
 ```
-📦 calculadora-web-component/
+calculadora-web-component/
 ├── index.html               # Página principal
 ├── calculadora.js           # Definición del componente personalizado
 ```
