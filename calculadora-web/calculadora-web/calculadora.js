@@ -4,7 +4,66 @@ class CalculadoraBasica extends HTMLElement {
     this.attachShadow({ mode: 'open' });
 
     this.shadowRoot.innerHTML = `
-      <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+      <style>
+        * {
+          box-sizing: border-box;
+          font-family: 'Poppins', sans-serif;
+        }
+
+        .card {
+          text-align: center;
+          background:rgb(233, 191, 205);
+          border-radius: 20px;
+          border: 1px solid #e1bee7;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+          width: 100%;
+          max-width: 520px;
+        }
+
+        h4 {
+          color:rgb(66, 62, 68);
+          font-weight: 600;
+        }
+
+        .form-control,
+        .form-select {
+          height: 100px;
+          width: 500px;
+          font-size: 1.1rem;
+          background-color: rgb(233, 191, 205);
+          border: 1px solid #f8bbd0;
+          color:rgb(66, 62, 68);
+        }
+
+        .form-control::placeholder {
+          color: rgb(66, 62, 68);
+        }
+
+        .btn-primary {
+          background-color:rgb(179, 142, 185);
+          border-color: rgb(179, 142, 185);
+          font-size: 1.1rem;
+          border-radius: 10px;
+          height: 50px;
+        }
+
+        .btn-primary:hover {
+          background-color: rgb(179, 142, 185);
+          border-color: ;
+        }
+
+        #resultado {
+          color:rgb(63, 66, 66);
+          font-size: 1.2rem;
+        }
+
+        #error {
+          color:rgb(175, 101, 101);
+        }
+      </style>
+      
       <div class="card shadow p-4" style="max-width: 400px;">
         <h4 class="mb-3 text-center">Calculadora Básica</h4>
         <div class="mb-3">
