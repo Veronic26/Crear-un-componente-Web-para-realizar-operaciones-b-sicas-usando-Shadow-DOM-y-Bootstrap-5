@@ -62,6 +62,27 @@ class CalculadoraBasica extends HTMLElement {
         #error {
           color:rgb(175, 101, 101);
         }
+        
+        #historial {
+          margin-top: 20px;
+          text-align: left;
+          font-size: 25px;
+          color: rgb(66, 62, 68);
+        }
+
+        #historial ul {
+          list-style: none;
+          padding-left: 0;
+        }
+
+        #historial li {
+          background: #f3e5f5;
+          margin-bottom: 5px;
+          padding: 8px;
+          border-radius: 8px;
+          font-size: 1.1rem;
+          color: #4a148c;
+        }
       </style>
       
       <div class="card shadow p-4" style="max-width: 400px;">
@@ -85,6 +106,12 @@ class CalculadoraBasica extends HTMLElement {
         </div>
         <div id="resultado" class="mt-3 fw-bold text-center text-success"></div>
         <div id="error" class="mt-2 text-danger text-center"></div>
+        
+        <!-- Historial -->
+        <div id="historial">
+          <h6>Historial de operaciones:</h6>
+          <ul id="lista-historial"></ul>
+        </div>
       </div>
     `;
   }
@@ -129,15 +156,25 @@ class CalculadoraBasica extends HTMLElement {
     }
 
     resultadoEl.textContent = `Resultado: ${resultado}`;
+
+    this.dispatchEvent(new CustomEvent('resultado-calculado', {
+      detail: { resultado },
+      bubbles: true,
+      composed: true
+    }));
+
+    const operacionTexto = `${num1} ${signo} ${num2} = ${resultado}`;
+    this.historial.push(operacionTexto);
+
+    historialEl.innerHTML = '';
+    this.historial.slice().reverse().forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      historialEl.appendChild(li);
+    });
   }
 }
 
 customElements.define('calculadora-basica', CalculadoraBasica);
-
-this.dispatchEvent(new CustomEvent('resultado-calculado', {
-  detail: { resultado },
-  bubbles: true,
-  composed: true
-}));
 
 
